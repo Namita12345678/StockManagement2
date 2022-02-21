@@ -70,6 +70,12 @@ public class Login extends AppCompatActivity {
                     }else if(edt_username.getText().toString().equals("abcd") && edt_password.getText().toString().equals("1234")) {
                         Intent intent = new Intent(Login.this,Home.class);
                         startActivity(intent);
+                        Toast.makeText(Login.this,"Login Successful", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+
+                        Toast.makeText(Login.this, " Email or Password is incorrect!! ", Toast.LENGTH_SHORT).show();
+
                     }
 
 //                    else{

@@ -14,5 +14,12 @@
 
     <color name="d_green">#00BFA5</color>
     <color name="d_blue">#0093DD</color>
+    <color name="Yellow">#FFEB3B</color>
+    <color name="Orange">#FF9800</color>
+    <color name="yellow">#FFF59D</color>
+    <color name="yellow1">#FFEB3B</color>
+    <color name="green">#A5D6A7</color>
+    <color name="lightgreen">#E8F5E9</color>
+
 
 </resources>
