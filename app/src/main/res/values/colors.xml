@@ -18,8 +18,11 @@
     <color name="Orange">#FF9800</color>
     <color name="yellow">#FFF59D</color>
     <color name="yellow1">#FFEB3B</color>
-    <color name="green">#A5D6A7</color>
+    <color name="green">#B9F6CA</color>
     <color name="lightgreen">#E8F5E9</color>
+    <color name="green1">#66BB6A</color>
+    <color name="mintgreen">#C5E1A5</color>
+    <color name="lemongreen">#CCFF90</color>
 
 
 </resources>

@@ -2,6 +2,7 @@ package com.example.stockmanagement2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,36 +14,31 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.example.stockmanagement2.Pojo.Login_pojo;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import com.Login_Getter_Setter;
+import com.example.stockmanagement2.Pojo.Login_pojo;
+
+
 
 public class Login extends AppCompatActivity {
 
     EditText edt_username,edt_password;
     Button login_button;
+    Jin j;
+    String login_url,result;
 
-    String header;
+    ProgressDialog dialog;
     String customer_username,customer_password;
-    SharedPreferences mSP;
+    List<Login_Getter_Setter> model;
 
-    SharedPreferences mSharedPreferences;
-    SharedPreferences.Editor editor;
+    ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-    ArrayList<Login_pojo> model;
-
-    String username,password,name,image_url;
-    String login_url;
-    String result;
-
-    String url = "https://urmilkman.com/apppanel/res/wsloginnew.php?p1=1478523690&p2=123456";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,33 +46,111 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         login_button = findViewById(R.id.login_button);
+                
+                
+               
         edt_username = findViewById(R.id.edt_username);
         edt_password = findViewById(R.id.edt_password);
 
 
+        model = new ArrayList<>();
+
+        j = new Jin();
         login_button.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
 
+
                 final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-                header = url;
-                mSP = getSharedPreferences("login", Context.MODE_PRIVATE);
+
 
                     if (edt_username.getText().toString().length()==0 ) {
                         edt_username.setError("Username can't be empty");
-                    }else if(edt_password.getText().length()==0){
+                    }else if(edt_password.getText().length()==0) {
                         edt_password.setError("Password can't be empty");
-                    }else if(edt_username.getText().toString().equals("abcd") && edt_password.getText().toString().equals("1234")) {
-                        Intent intent = new Intent(Login.this,Home.class);
-                        startActivity(intent);
-                        Toast.makeText(Login.this,"Login Successful", Toast.LENGTH_SHORT).show();
                     }
                     else{
 
-                        Toast.makeText(Login.this, " Email or Password is incorrect!! ", Toast.LENGTH_SHORT).show();
+                        login_url = "https://screechy-buzzers.000webhostapp.com/Stock/login2.php?username="+edt_username.getText().toString();
+                        Log.v("Login",""+login_url);
+
+                        dialog = new ProgressDialog(Login.this);
+                        dialog.setMessage("Checking your credentials.");
+                        dialog.show();
+
+                        executorService.execute(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                try
+                                {
+                                    json o = new json();
+                                    result = o.insert(login_url);
+                                    model = new ArrayList<>();
+
+                                    JSONObject jsonObject = new JSONObject(result);
+                                    JSONArray jsonArray = jsonObject.getJSONArray("res");
+
+                                    Log.v("Login_DATA",""+result);
+
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                                        JSONObject jsonObject11 = jsonArray.getJSONObject(i);
+                                        Login_Getter_Setter p = new Login_Getter_Setter();
+
+                                        p.setUsername(jsonObject11.getString("uname"));
+                                        p.setPassword(jsonObject11.getString("upass"));
+
+                                        model.add(p);
+
+                                        customer_username = p.getUsername();
+                                        customer_password = p.getPassword();
+
+                                        Log.v("username","id: "+edt_username +" pass: "+edt_password);
+                                        Log.v("customer_username","id: "+customer_username +" pass: "+customer_password);
+
+                                    }
+                                }
+                                catch ( JSONException e)
+                                {
+                                    e.printStackTrace();
+                                    //  Toast.makeText(Login.this, "Please check your Internet Connection and Retry", Toast.LENGTH_LONG).show();
+                                }
+
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        //write your UI part here....
+                                        if (edt_username.getText().toString().equals(customer_username) && edt_password.getText().toString().equals(customer_password))
+                                        {
+                                            Toast.makeText(Login.this, " Login Sucessful!!", Toast.LENGTH_SHORT).show();
+                                            dialog.dismiss();
+                                            Intent intent= new Intent(Login.this,Home.class);
+                                            startActivity(intent);
+
+
+                                        }
+                                        else{
+                                            dialog.dismiss();
+                                            Toast.makeText(Login.this, " Email or Password is Incorrect!! ", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+
+                            }
+                        });
+
+
 
                     }
+
+            }
+        });
+    }
+}
+
 
 //                    else{
 
@@ -170,9 +244,3 @@ public class Login extends AppCompatActivity {
 
 
 
-            }
-        });
-
-    }
-
-}

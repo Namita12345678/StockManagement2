@@ -1,10 +1,15 @@
 package com.example.stockmanagement2;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,10 +20,7 @@ import com.google.android.material.card.MaterialCardView;
 
 public class Home extends AppCompatActivity {
 
-    MaterialCardView iphone_cardview, samsung_cardview, realme_cardview;
-    SharedPreferences sp;
-
-
+    private DrawerLayout drawer;
 
 
     @Override
@@ -26,34 +28,24 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        iphone_cardview = findViewById(R.id.iphone_cardview);
-        samsung_cardview = findViewById(R.id.samsung_cardview);
-       realme_cardview = findViewById(R.id.realme_cardeview);
-
-        iphone_cardview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Home.this, Card1.class));
-            }
-        });
-
-        samsung_cardview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Home.this, Card2.class));
-            }
-        });
-
-        realme_cardview.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Home.this, Card3.class));
-            }
-        }));
-
-        }
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
     }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer((GravityCompat.START));
+        } else {
+            super.onBackPressed();
+        }
+    }
+}
 
 
 
