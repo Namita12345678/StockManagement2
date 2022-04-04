@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.stockmanagement2">
-<uses-permission android:name="android.permission.INTERNET">
 
-</uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,10 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StockManagement2">
+        <activity android:name=".Manage_product"></activity>
+        <activity android:name=".Add_product" />
+        <activity android:name=".Total_order" />
+        <activity android:name=".Available_stock" />
+        <activity android:name=".Home1" />
+        <activity android:name=".Products" />
+        <activity android:name=".Categories" />
+        <activity android:name=".Dashboard" />
         <activity android:name=".Card3" />
         <activity android:name=".Card2" />
         <activity android:name=".Card1" />
         <activity android:name=".Home" />
+        <activity android:name=".Base" />
         <activity android:name=".Login" />
         <activity android:name=".Splash">
             <intent-filter>

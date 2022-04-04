@@ -23,6 +23,12 @@
     <color name="green1">#66BB6A</color>
     <color name="mintgreen">#C5E1A5</color>
     <color name="lemongreen">#CCFF90</color>
-
-
+    <color name="Pink">#F8BBD0</color>
+    <color name="brown">#D7CCC8</color>
+     <color name="amber">#FFE082</color>
+    <color name="red">#EF9A9A</color>
+    <color name="lilac_purple">#F3E5F5</color>
+    <color name="dark_pink">#880E4F</color>
+    <color name="cyan">#84FFFF</color>
+    <color name="deep_orange">#FF8A65</color>
 </resources>

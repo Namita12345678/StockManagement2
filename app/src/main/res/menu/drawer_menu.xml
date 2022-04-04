@@ -4,6 +4,11 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_home1"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home"/>
+
         <item android:id="@+id/nav_dashboard"
             android:icon="@drawable/ic_baseline_dashboard_24"
             android:title="Dashboard"/>
@@ -14,7 +19,7 @@
 
         <item android:id="@+id/nav_product"
             android:icon="@drawable/ic_baseline_product_24"
-            android:title="Products"/>
+            android:title="Product"/>
     </group>
 
     <item android:title="Communicate">

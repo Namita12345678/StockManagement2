@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Rakesh \n rakesh234@gmail.com"
+        android:text="Rakesh \nrakesh234@gmail.com"
         android:textColor="@color/black"/>
 
 
