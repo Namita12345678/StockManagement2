@@ -33,14 +33,17 @@
         <activity android:name=".Card2" />
         <activity android:name=".Card1" />
         <activity android:name=".Home" />
-        <activity android:name=".Base" />
-        <activity android:name=".Login" />
-        <activity android:name=".Splash">
+        <activity android:name=".Base">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".Login" />
+        <activity android:name=".Splash">
+
         </activity>
         <activity android:name=".CalendarActivity"></activity>
     </application>
