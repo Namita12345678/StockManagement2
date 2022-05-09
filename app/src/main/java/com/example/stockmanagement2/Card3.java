@@ -21,7 +21,7 @@ import java.util.List;
 
 public class Card3 extends AppCompatActivity {
 
-    private static final String product_url="https://screechy-buzzers.000webhostapp.com/Stock/products.php";
+    private static final String product_url="https://screechy-buzzers.000webhostapp.com/Stock/products.php?title=Realme";
 
     //the recyclerview
     RecyclerView recyclerView;

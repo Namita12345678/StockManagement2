@@ -11,14 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StockManagement2">
-        <activity android:name=".Manage_product"></activity>
+
+        <activity android:name=".Manage_brand" />
+        <activity android:name=".Add_brand" />
+        <activity android:name=".Item" />
+        <activity android:name=".Manage_product" />
         <activity android:name=".Add_product" />
         <activity android:name=".Total_order" />
         <activity android:name=".Available_stock" />
         <activity android:name=".Home1" />
-        <activity android:name=".Products" />
-        <activity android:name=".Categories" />
-        <activity android:name=".Dashboard" />
+        <activity
+            android:name=".Products"
+            android:label="Products" />
+        <activity
+            android:name=".Categories"
+            android:label="Categories" />
+        <activity
+            android:name=".Dashboard"
+            android:label="Dashboard" />
         <activity android:name=".Card3" />
         <activity android:name=".Card2" />
         <activity android:name=".Card1" />
@@ -32,6 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CalendarActivity"></activity>
     </application>
 
 </manifest>

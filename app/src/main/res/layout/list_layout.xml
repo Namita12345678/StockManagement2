@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp">
@@ -26,8 +27,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:fontFamily="@font/roboto_medium"
                 android:layout_toRightOf="@id/imageView"
-                android:text="Samsung Galaxy A22 5g, Mint, 8GB RAM, 128GB storage, FHD+1080x2408 resolution, expandable storage up to 1TB/SIM 1+ SIM2+ MicroSD, MediaTek/MT6833V 2.2GHZ, 2GHZ Processor"
+                android:text="Samsung Galaxy A22 5g, Mint, 8GB RAM, 128GB storage, FHD+1080x2408 resolution\n expandable storage up to 1TB/SIM 1+ SIM2+ MicroSD, MediaTek/MT6833V 2.2GHZ, 2GHZ Processor"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />
 
@@ -39,7 +41,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@id/imageView"
-                android:text="186g, 6.6 Inch, 5000mAh battery"
+                android:text="186g, 6.6 Inch, \n  5000mAh battery"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
             <TextView

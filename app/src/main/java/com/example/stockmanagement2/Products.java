@@ -30,7 +30,7 @@ public class Products extends Home {
                 startActivity(new Intent(Products.this, Add_product.class));
             }
         });
-manage_product.setOnClickListener(new View.OnClickListener() {
+           manage_product.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         startActivity(new Intent(Products.this, Manage_product.class));

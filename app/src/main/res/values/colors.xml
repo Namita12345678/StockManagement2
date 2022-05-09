@@ -31,4 +31,7 @@
     <color name="dark_pink">#880E4F</color>
     <color name="cyan">#84FFFF</color>
     <color name="deep_orange">#FF8A65</color>
+    <color name="light_yellow">#FFECB3</color>
+    <color name="teal">#4DB6AC</color>
+    <color name="lightgrey">#BDBDBD</color>
 </resources>

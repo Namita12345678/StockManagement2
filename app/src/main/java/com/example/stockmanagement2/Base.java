@@ -33,6 +33,8 @@ public class Base extends Home {
         samsung_cardview = findViewById(R.id.samsung_cardview);
         realme_cardview = findViewById(R.id.realme_cardeview);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
+
         iphone_cardview.setOnClickListener(new View.OnClickListener() {
 
             @Override

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Card2 extends AppCompatActivity {
-    private static final String product_url="https://screechy-buzzers.000webhostapp.com/Stock/products.php";
+    private static final String product_url="https://screechy-buzzers.000webhostapp.com/Stock/products.php?title=Samsung";
 
     //the recyclerview
     RecyclerView recyclerView;

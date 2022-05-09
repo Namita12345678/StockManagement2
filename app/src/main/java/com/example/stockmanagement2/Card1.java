@@ -1,10 +1,10 @@
 package com.example.stockmanagement2;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -21,7 +21,7 @@ import java.util.List;
 
 public class Card1 extends AppCompatActivity {
 
-    private static final String product_url="https://screechy-buzzers.000webhostapp.com/Stock/products.php";
+    private static final String product_url="https://screechy-buzzers.000webhostapp.com/Stock/products.php?title=iPhone";
 
     //the recyclerview
     RecyclerView recyclerView;
@@ -40,7 +40,6 @@ public class Card1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card1);
 
-
         //getting the recyclerview from xml
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -54,6 +53,13 @@ public class Card1 extends AppCompatActivity {
         loadProducts();
     }
 
+   /* @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.id.searchView);
+        return super.onCreateOptionsMenu(menu);
+    }
+*/
     private void loadProducts() {
         /*
          * Creating a String Request
@@ -112,6 +118,13 @@ public class Card1 extends AppCompatActivity {
 
         //adding our stringrequest to queue
         Volley.newRequestQueue(this).add(stringRequest);
+
+      /*  Intent intent = new Intent(Card1.this, Card1.class);
+        intent.putExtra("URL", url);
+        startActivity(intent);
+*/
+
     }
+
 }
 

@@ -8,9 +8,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="match_parent"
         tools:context=".Home"
         tools:openDrawer="start"
-        android:fitsSystemWindows="true"
-        >
-
+        android:fitsSystemWindows="true">
 
 <include layout="@layout/contentlayout"
     android:layout_width="match_parent"

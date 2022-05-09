@@ -1,28 +1,26 @@
 package com.example.stockmanagement2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.Login_Getter_Setter;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import com.Login_Getter_Setter;
-import com.example.stockmanagement2.Pojo.Login_pojo;
 
 
 
@@ -30,7 +28,7 @@ public class Login extends AppCompatActivity {
 
     EditText edt_username,edt_password;
     Button login_button;
-    Jin j;
+
     String login_url,result;
 
     ProgressDialog dialog;
@@ -46,16 +44,13 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         login_button = findViewById(R.id.login_button);
-                
-                
-               
         edt_username = findViewById(R.id.edt_username);
         edt_password = findViewById(R.id.edt_password);
 
 
         model = new ArrayList<>();
 
-        j = new Jin();
+
         login_button.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -86,7 +81,7 @@ public class Login extends AppCompatActivity {
 
                                 try
                                 {
-                                    json o = new json();
+                                    JsonParser o = new JsonParser();
                                     result = o.insert(login_url);
                                     model = new ArrayList<>();
 

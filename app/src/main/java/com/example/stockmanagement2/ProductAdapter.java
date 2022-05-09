@@ -1,6 +1,7 @@
 package com.example.stockmanagement2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.stockmanagement2.R;
 
 import java.util.List;
 
@@ -39,6 +39,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(ProductViewHolder holder, int position) {
+
+
         //getting the product of the specified position
         Product product = productList.get(position);
 
@@ -51,8 +53,24 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.textViewTitle.setText(product.getTitle());
         holder.textViewShortDesc.setText(product.getShortdesc());
         holder.textViewRating.setText(String.valueOf(product.getRating()));
-        holder.textViewPrice.setText(String.valueOf(product.getPrice()));
+        holder.textViewPrice.setText("₹"+String.valueOf(product.getPrice()));
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                    Intent i= new Intent(mCtx,Item.class);
+                    i.putExtra("title", productList.get(position).getTitle());
+                    i.putExtra("shortdes", productList.get(position).getShortdesc());
+                    i.putExtra("rating", productList.get(position).getRating());
+                    i.putExtra("price", productList.get(position).getPrice());
+                    i.putExtra("id", productList.get(position).getId());
+                    i.putExtra("image", productList.get(position).getImage());
+
+                    mCtx.startActivity(i);
+
+            }
+        });
 
 
     }
